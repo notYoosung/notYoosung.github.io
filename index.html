@@ -1,10 +1,729 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<!-- Too bad there isn't an inspector for KA
+     The browser's inspector doesn't work very well for KA -->
+<html>
+
+<head>
     <meta charset="utf-8">
-    <title>notYoosung's Site</title>
-  </head>
-  <body>
-    <p>Welcome to somewhere
-  </body>
+    <title>New webpage</title>
+    
+    <style>
+        body, html {
+            margin: 0;
+            font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #fff;
+            text-align: left;
+            background-color: #16202c;
+        }
+        
+        *,
+        :after,
+        :before {
+            box-sizing: border-box;
+        }
+        
+    </style>
+    
+    <!-- Navbars -->
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-evenly;
+            border-radius: 10px;
+            background-color: #2a455d;
+            background: linear-gradient(180deg, #2a455d, #16202c);
+            line-height: 40px;
+            top: 0;
+            position: sticky;
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 2.5%;
+            margin-bottom: 2.5%;
+        }
+        
+        nav>a {
+            position: relative;
+            float: left;
+            vertical-align: bottom;
+            list-style-type: none;
+            background: #f5e765;
+            background: linear-gradient(180deg, #2a455d, #16202c);
+        }
+        
+        .nav-link {
+            color: #97D3F5;
+            font-weight: 550;
+        }
+        
+        .nav-link:hover {
+            background: rgba(0, 0, 0, 1);
+        }
+        
+    </style>
+    
+    <!-- Program previews -->
+    <style>
+        /* Ads */
+        .ad-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            align-content: center;
+            vertical-align: center;
+            text-align: center;
+            height: 100px;
+            overflow: hidden;
+        }
+        
+        /* Main ad */
+        .ad-1 {
+            margin: 0 auto;
+            /*height: 132px;*/
+            /*width: 728px;*/
+        }
+        
+        
+        /* Headers */
+        .block .view-content .views-row .common-title {
+            display: block;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        h2.common-title{
+            position: relative;
+            background-image: none;
+            color: #fff;
+            font-family: Proxima-Soft-Bold, arial;
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            margin-top: -4px;
+            padding: 0 0 3px;
+            border-bottom: 2px solid #FFF;
+        }
+        
+        .link-in-title-block a {
+            border: none;
+            color: #8fcbed;
+            font-size: 12px;
+        }
+        
+        .program-section-heading {
+            font-family: Tahoma, Sans-Serif;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .title-with-button {
+            font-family: Tahoma, Sans-Serif;
+        }
+        .title-see-more {
+            font-family: Trebuchet MS, Verdana, Tahoma, Sans-Serif;
+            font-size: 10px;
+            font-weight: lighter;
+        }
+        
+        
+        /* Item columns */
+        .col-1 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        /* The title for the items */
+        .game-title {
+            font-size: 1.25rem;
+            line-height: 1.2rem;
+            text-transform: none;
+            display: inline;
+            color: #29bffd;
+            font-family: Tahoma, Sans-Serif;
+            font-weight: 700;
+            position: relative;
+            top: -0px;
+        }
+        
+        /* The author text for the items */
+        .game-author {
+            font-size: 1.25rem;
+            line-height: 1.2rem;
+            text-transform: none;
+            color: #29bffd;
+            font-family:  Tahoma, Sans-Serif;
+            font-weight: bold;
+            position: relative;
+            top: -15px;
+        }
+        
+        .game-author:hover {
+            font-weight: 900;
+        }
+        
+        .game-author:before {
+            content: "";
+        }
+        
+        /* The description for the items */
+        .game-item-description {
+            position: relative;
+            top: 10px;
+            color: #FFFFFF;
+        }
+        
+        /* The item */
+        .game-item {
+            margin-bottom: 10px;
+            overflow: inherit;
+            width: 100%;
+            height: 100px;
+            overflow: visible;/*visible*/
+        }
+        
+        .game-item .game-link-wrapper img {
+            float: left;
+            margin-right: 10px;
+            background-color: #006c8a;
+            border: 1px solid #32bdff;
+            border-radius: 5px;
+            padding: 5px;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+        }
+        .game-item-thumbnail img {
+            border-radius: 5px;
+        }
+        
+        /* The description for the items */
+        .item-description {
+            position: relative;
+            top: -45px;
+            height: 72.5px;
+            overflow: scroll;/*visible*/
+        }
+        /*https://stackoverflow.com/questions/1202425/making-the-main-scrollbar-always-visible*/
+        /*https://stackoverflow.com/questions/9251354/css-customized-scroll-bar-in-div/14150577*/
+        /*https://stackoverflow.com/questions/48737824/white-box-between-scroll-wheels*/
+        .item-description::-webkit-scrollbar {
+            width: 5px;
+            opacity: 0.5;
+            
+        }
+        .item-description::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: rgba(10, 50, 250, 0.5);
+            /*opacity: 0.5;*/
+            /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
+        }
+        .item-description::-webkit-scrollbar-corner {
+            background: inherit;
+        }
+        
+        .item-description:hover {
+            /*display: none;*/
+        }
+        
+        /* The description's text */
+        .item-desc-text {
+            font-size: 15px;
+            line-height: 4px;
+        }
+        
+        /* Links in the text */
+        .item-desc-text-link {
+            font-size: 15px;
+            color: #29bffd;
+        }
+        
+        .item-desc-text-link:hover {
+            font-weight: 550;
+        }
+        
+    </style>
+    
+    <!-- Testing -->
+    <style>
+        .hide {
+            display: none;
+        }
+        
+        #example-five {
+            position: relative;
+        }
+        
+        #example-five-checkbox {
+            display: none;
+        }
+        
+        #example-five-checkbox:hover+#example-five:after {
+            content: "Hide";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+        }
+        
+    </style>
+    
+    <!-- All links -->
+    <style>
+        /*https://stackoverflow.com/questions/44860766/how-to-create-underline-effect-on-hovered-links-in-css*/
+        a {
+            color: #29bffd;
+            text-decoration: none;
+            background-color: initial;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #29bffd;
+        }
+        
+    </style>
+    
+    <!-- Footer (credit to Polar)-->
+    <style>
+        #footer {
+            display: none;
+            flex-flow: column nowrap;
+            /* split into top and bottom*/
+            width: 100%;
+            padding: 35px;
+            background: #19252a;
+            /* dark blue / gray */
+            box-shadow: inset 0 5px 10px #000;
+            /* shadows inside the footer*/
+            box-sizing: border-box;
+        }
+        
+        .footer-top {
+            display: flex;
+            flex-flow: row wrap;
+            /* this allows for responsiveness */
+            justify-content: space-between;
+            /* space out the divs */
+            -webkit-justify-content: space-between;
+            width: 100%;
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            display: none;
+        }
+        
+        @media (min-width: 720px) {
+            
+            /* only display logo when large screen*/
+            .footer-logo {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: block;
+                user-select: none;
+            }
+        }
+        
+        .links {
+            /* all links are in a list format */
+            display: flex;
+            flex-flow: column nowrap;
+            font-family: 'Roboto';
+            font-weight: 300;
+            color: #fff;
+            min-width: 150px;
+        }
+        
+        .links a {
+            line-height: 30px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Roboto';
+            font-weight: 300;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .links a:hover {
+            text-decoration: underline;
+        }
+        
+        .links a:after {
+            /* add an arrow when hovered */
+            position: absolute;
+            display: inline-block;
+            line-height: 25px;
+            vertical-align: center;
+            content: 'arrow_right_alt';
+            font-family: 'Material Icons';
+            font-size: 18px;
+            font-weight: 900;
+            transform: translateX(0px);
+            opacity: 0;
+            transition: 200ms opacity, 200ms transform;
+            /* transition 200 milliseconds */
+        }
+        
+        .links a:hover:after {
+            transform: translateX(10px);
+            opacity: 1;
+        }
+        
+        .links h3 {
+            /* blend into dark blue color */
+            color: #99a;
+            font-size: 15px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            font-family: 'Rubik';
+        }
+        
+        .footer-bottom {
+            /* the copyright thing */
+            margin-top: 40px;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 300;
+            line-height: 22px;
+            color: #889;
+            font-size: 15px;
+            font-family: 'Roboto';
+        }
+        
+        .footer-bottom a {
+            color: #12abee;
+            /* beautiful blue color */
+            font-size: 15px;
+            text-decoration: none;
+        }
+        
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="hide">
+        <input type="checkbox" id="example-five-checkbox" />
+        <label id="example-five" for="example-five-checkbox">Show</label>
+    </div>
+    
+    <!-- Main page -->
+    <div id="main-page" class="page">
+        <div class="logo">
+            
+        </div>
+        <nav>
+            <a href='javascript: changePage("main-page");' class="nav-link">Main</a>
+            <a href='javascript: changePage("game-page");' class="nav-link">Page 2</a>
+        </nav>
+        
+        <!-- Ad -->
+        <div class="ad-wrapper">
+            <div class="ad-container">
+                <script src="https://www.khanacademy.org/computer-programming/ad-ads-are-annoying/4777440057016320/embed.js?editor=no&buttons=no&author=no&embed=yes" class="ad-1"></script>
+            </div>
+            <div class="pw_report_ad_container" style="line-height:normal;display:inline-block;">
+                <a id="report_ad_leaderboard_atf" href="" class="playwire_report_ad_link" style="color: #4db2ec;font-size:10px !important;font-family:&quot;Open Sans&quot;,arial,sans-serif !important">Report Ad</a>
+            </div>
+        </div>
+        
+        <!-- Header -->
+        <h2 class="common-title clearfix program-section-heading">
+            <span class="title-with-button">Games</span>
+            <span class="link-in-title-block">
+                <a href="javascript:changePage('more-games-page', 0)" class="title-see-more">See more
+                </a>
+            </span>
+        </h2>
+        
+        <div class="col-1 games">
+            <div id="game-items">
+                <!-- An entry -->
+                <!--<div class="game-item game-item-1">-->
+                <!--    <div class="game-link-wrapper">-->
+                        <!-- Create an image and title linked to game -->
+                <!--        <a href="https://www.khanacademy.org/computer-programming/i/1523326697">-->
+                <!--            <div class="field-image"><img src="https://www.khanacademy.org/computer-programming/minecraft/1523326697/latest.png" loading="eager" alt="Minecraft" width="200" height="200"></div>-->
+                <!--            <h3 class="game-title"><span>Minecraft</span></h3>-->
+                <!--        </a>-->
+                        <!-- Create text linked to author -->
+                <!--        <a href="https://www.khanacademy.org/profile/kaid_416027002460099835055978/projects">-->
+                <!--            <h3 class="game-author"><span>Bennimus</span></h3>-->
+                <!--        </a>-->
+                <!--    </div>-->
+                <!--    <div class="game-item-description">-->
+                <!--        <div class="item-description">-->
+                <!--            <p class="item-desc-text"> This still is considered to be the greatest program of its time-->
+                <!--            <p class="item-desc-text"> Unfortunately, it's currently under conflict with -->
+                <!--                <a href="https://www.khanacademy.org/profile/kaid_401615247760834240742277/projects" class="item-desc-text-link">Nordituck's</a> -->
+                <!--                <a href="https://www.khanacademy.org/computer-programming/i/1431776579" class="item-desc-text-link">Doodle Jump</a>-->
+                <!--            </p>-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+                <!--<div class="game-item game-item-2">-->
+                <!--    <div class="game-link-wrapper">-->
+                <!--        <a href="https://www.khanacademy.org/computer-programming/i/6565657770147840">-->
+                <!--            <div class="field-image"><img src="https://www.khanacademy.org/computer-programming/i/6565657770147840/latest.png" loading="eager" alt="Minecraft 2" width="200" height="200"></div>-->
+                <!--            <h3 class="game-title"><span>Minecraft 2</span></h3>-->
+                <!--        </a>-->
+                <!--        <a href="https://www.khanacademy.org/profile/kaid_416027002460099835055978/projects">-->
+                <!--            <h3 class="game-author"><span>Bennimus</span></h3>-->
+                <!--        </a>-->
+                <!--    </div>-->
+                <!--    <div class="game-item-description">-->
+                <!--        <div class="item-description">-->
+                <!--            <p class="item-desc-text"> A much more updated reprise of Bennimus' "Minecraft."-->
+                <!--            <p class="item-desc-text"> -->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    
+    <div id="game-page" class="page">
+        <nav>
+            <a href='javascript: changePage("main-page");' class="nav-link">Main</a>
+            <a href='javascript: changePage("game-page");' class="nav-link">Page 2</a>
+        </nav>
+    </div>
+    
+    <footer id='footer'>
+        <div class='footer-top'>
+            <img class='footer-logo' src='https://www.khanacademy.org/computer-programming/i/5829667350167552/latest.png' alt='PolarLabs Logo'>
+            <div class='links'>
+                <h3>Site</h3>
+                <a class='button' id='0'>Home</a>
+                <a class='button' id='1'>Projects</a>
+                <a class='button' id='2'>About</a>
+                <a class='button' id='3'>???</a>
+            </div>
+            <div></div>
+            <div class='links'>
+                <h3>Socials</h3>
+                <a href='https://www.khanacademy.org/profile/kaid_80710011086149831327935' target='_blank'>My Profile</a>
+                <a href='https://www.khanacademy.org/computer-programming/i/5083721946415104' target='_blank'>My Mom's Profile</a>
+            </div>
+            <div></div>
+            <div></div>
+            <div class='links'>
+                <h3>&More</h3>
+                <a class='fullscreen'>Open In Fullscreen</a>
+                <a href='https://www.khanacademy.org/computer-programming/i/6201759782453248' target='_blank'>Contest: Animation</a>
+            </div>
+        </div>
+        <div class='footer-bottom'>
+            <p>Copyright <span class='material-icons' style='font-size:15px;position:relative;top:2px;'>copyright</span> 2022 PolarLabs. All rights reserved.<br>For web site terms of use, trademark policy, and general project policies please see <a href='https://creativecommons.org/licenses/by/4.0/' target='_blank'>https://creativecommons.org/licenses/by/4.0/</a></p>
+        </div>
+    </footer>
+    
+    
+    
+    <!-- Switch pages -->
+    <script type>
+        var pages = document.getElementsByClassName('page');
+        
+        function changePage(id) {
+            window.scroll(0, 0);
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            document.getElementById(id).style.display = 'block';
+        };
+        
+        changePage("main-page");
+        
+    </script>
+    
+    <!-- Append new items to the main page -->
+    <script type>
+/*
+<div class=\"game-item game-item"+itemCount+"\">
+    <div class=\"game-link-wrapper\">
+        <a href=\"" + KACP + "/" + t.title.id + "\">
+            <div class=\"field-image\"><img src=\"" + KACP + "/" + t.title.id + "/latest.png\" loading=\"eager\" alt=\"" + t.alt + "\" width=\"200\" height=\"200\"></div>
+            <h3 class=\"game-title\"><span>" + t.title.name + "</span></h3>
+        </a>
+        <a href=\"" + KA + "/profile/kaid_" + t.author.id + "/projects\">
+            <h3 class=\"game-author\"><span>" + t.author.name + "</span></h3>
+        </a>
+    </div>
+    <div class=\"game-item-description\">
+        <div class=\"item-description\">
+            " + formattedDescription + "
+                <a href=\"" + KA + "/profile/kaid_" + t.author.id + "/projects\" class=\"item-desc-text-link\">" + t.author.name + "</a> 
+                <a href=\""+KACP+"/" + t.title.id + "\" class=\"item-desc-text-link\">" + t.title.name + "</a>
+            </p>
+        </div>
+    </div>
+</div>
+*/
+        var items = {
+            1523326697: {
+                title: {
+                    name: "Minecraft",
+                    id: 1523326697,
+                },
+                author: {
+                    name: "Bennimus",
+                    id: "416027002460099835055978",
+                },
+                alt: "",
+                description: ["This still is considered to be the greatest program of its time", "Unfortunately, it\'s currently under conflict with <a href=\"https://www.khanacademy.org/profile/kaid_401615247760834240742277/projects\" class=\"item-desc-text-link\">Nordituck\'s</a>", "<a href=\"https://www.khanacademy.org/computer-programming/i/1431776579\" class=\"item-desc-text-link\">Doodle Jump</a>"],
+            },
+            6565657770147840: {
+                title: {
+                    name: "Minecraft 2",
+                    id: 6565657770147840,
+                },
+                author: {
+                    name: "Bennimus",
+                    id: "416027002460099835055978",
+                },
+                alt: "",
+                description: ["A much more updated reprise of Bennimus\' Minecraft."],
+            },
+            1431776579: {
+                title: {
+                    name: "Doodle Jump",
+                    id: 1431776579,
+                },
+                author: {
+                    name: "Nordituck",
+                    id: "401615247760834240742277",
+                },
+                alt: "",
+                description: ["The eternal rival of Minecraft", "(Although few know about the true <a href=\"https://www.khanacademy.org/computer-programming/i/1881142843\">winner</a>...)"],
+            },
+        };
+        var itemCount = 0;
+        function AddGameItem(which, what) {
+            document.getElementById(which).insertAdjacentHTML("afterend", what);
+        }
+        function newHTML(itemId) {
+            var t = items[itemId];
+            var formattedDescription = "";
+            for (var i in t.description) {
+//                 formattedDescription += "<p class=\"item-desc-text\">" + t.description[i] + "</p>\n";
+//             }
+//             var KA = "https://www.khanacademy.org";
+//             var KACP = KA + "/computer-programming/i";
+//             return "\
+// <div class=\"game-item game-item-"+itemCount+"\">\
+//     <div class=\"game-link-wrapper\">\
+//         <a href=\"" + KACP + "/" + t.title.id + "\">\
+//             <div class=\"game-item-thumbnail\">\
+//                 <img src=\"" + KACP + "/" + t.title.id + "/latest.png\" loading=\"eager\" alt=\"" + t.alt + "\" width=\"200\" height=\"200\">\
+//             </div>\
+//             <h3 class=\"game-title\">" + t.title.name + "</h3>\
+//         </a>\
+//         <a href=\"" + KA + "/profile/kaid_" + t.author.id + "/projects\">\
+//             <h3 class=\"game-author\">" + t.author.name + "</h3>\
+//         </a>\
+//     </div>\
+//     <div class=\"game-item-description\">\
+//         <div class=\"item-description\">\
+//             " + formattedDescription + "\
+//             </p>\
+//         </div>\
+//     </div>\
+// </div>";
+                formattedDescription += "<p class=\"item-desc-text\">" + t.description[i] + "</p>\n";
+            }
+            var KA = "https://www.khanacademy.org";
+            var KACP = KA + "/computer-programming/i";
+            return `
+<div class="game-item game-item-${itemCount}">
+    <div class="game-link-wrapper">
+        <a href="${KACP}/${t.title.id}">
+            <div class="game-item-thumbnail">
+                <img src="${KACP}/${t.title.id}/latest.png" loading="eager" alt=${t.alt}" width="200" height="200">
+            </div>
+            <h3 class="game-title">${t.title.name}</h3>
+        </a>
+        <a href="${KA}/profile/kaid_${t.author.id}/projects">
+            <h3 class="game-author">${t.author.name}</h3>
+        </a>
+    </div>
+    <div class="game-item-description">
+        <div class="item-description">
+            ${formattedDescription}
+        </div>
+    </div>
+</div>`;
+        }
+        
+        for (var i in items) {
+            AddGameItem("game-items", newHTML(i));
+        }
+    </script>
+    
+    <!-- Fullscreening; Credit to Polar @kaid_80710011086149831327935 -->
+    <script type>
+      //  every fullscreen button
+      const fullscreens = document.getElementsByClassName('fullscreen');
+      
+      //  for all fullscreen buttons
+      for (let i = fullscreens.length; i--;) {
+        //  if clicked
+        fullscreens[i].addEventListener('click', () => {
+          //  open new tab and write the current html code
+          let w = window.open();
+          w.document.open();
+          w.document.write('<!doctype html><html>' + document.querySelector('html').innerHTML + '</html>');
+          w.document.close();
+        });
+    </script>
+    
+    <!-- Restart Button -->
+    <script>void(1||random());</script>
+    
+    
+    <!-- Credit to Grey Wolf @https://www.khanacademy.org/profile/kaid_639291037700385781852565/projects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script type="module">
+        function saveThumbnail() {
+            html2canvas(document.body, {
+                onrendered: function(canvas) {
+                    b64Img = canvas.toDataURL();
+                    window.top.postMessage(b64Img, "https://www.khanacademy.org/");
+                },
+                allowTaint : false,
+                useCORS: true,
+                width: window.innerWidth,
+                height: window.innerWidth
+            });
+        };
+        
+        function save() {
+            /*document.body.innerHTML = ``;*/
+            saveThumbnail();
+        }
+        
+        document.body.addEventListener("keydown", (e) => {
+            if(e.keyCode === 83) {
+                save();
+            }
+        });
+    </script><!--<script>-->
+</body>
+
 </html>
