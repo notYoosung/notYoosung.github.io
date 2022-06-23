@@ -7,8 +7,12 @@
     <meta charset="utf-8">
     <title>New webpage</title>
     
+    <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+    <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+    
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
             font-size: 1rem;
@@ -29,7 +33,7 @@
     
     <!-- Navbars -->
     <style>
-        nav {
+        .primary-navbar {
             display: flex;
             justify-content: space-evenly;
             border-radius: 10px;
@@ -45,7 +49,7 @@
             margin-bottom: 2.5%;
         }
         
-        nav>a {
+        .primary-navbar>a {
             position: relative;
             float: left;
             vertical-align: bottom;
@@ -60,7 +64,7 @@
         }
         
         .nav-link:hover {
-            background: rgba(0, 0, 0, 1);
+            background: linear-gradient(180deg, #2a455d, #16202c);
         }
         
     </style>
@@ -95,7 +99,7 @@
             max-width: 100%;
         }
         
-        h2.common-title{
+        h2.common-title {
             position: relative;
             background-image: none;
             color: #fff;
@@ -122,9 +126,11 @@
             margin-left: 10px;
             margin-right: 10px;
         }
+        
         .title-with-button {
             font-family: Tahoma, Sans-Serif;
         }
+        
         .title-see-more {
             font-family: Trebuchet MS, Verdana, Tahoma, Sans-Serif;
             font-size: 10px;
@@ -159,7 +165,7 @@
             line-height: 1.2rem;
             text-transform: none;
             color: #29bffd;
-            font-family:  Tahoma, Sans-Serif;
+            font-family: Tahoma, Sans-Serif;
             font-weight: bold;
             position: relative;
             top: -15px;
@@ -186,7 +192,8 @@
             overflow: inherit;
             width: 100%;
             height: 100px;
-            overflow: visible;/*visible*/
+            overflow: visible;
+            /*visible*/
         }
         
         .game-item .game-link-wrapper img {
@@ -200,6 +207,7 @@
             height: 100px;
             overflow: hidden;
         }
+        
         .game-item-thumbnail img {
             border-radius: 5px;
         }
@@ -209,8 +217,10 @@
             position: relative;
             top: -45px;
             height: 72.5px;
-            overflow: scroll;/*visible*/
+            overflow: scroll;
+            /*visible*/
         }
+        
         /*https://stackoverflow.com/questions/1202425/making-the-main-scrollbar-always-visible*/
         /*https://stackoverflow.com/questions/9251354/css-customized-scroll-bar-in-div/14150577*/
         /*https://stackoverflow.com/questions/48737824/white-box-between-scroll-wheels*/
@@ -219,12 +229,14 @@
             opacity: 0.5;
             
         }
+        
         .item-description::-webkit-scrollbar-thumb {
             border-radius: 10px;
             background-color: rgba(10, 50, 250, 0.5);
             /*opacity: 0.5;*/
             /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);*/
         }
+        
         .item-description::-webkit-scrollbar-corner {
             background: inherit;
         }
@@ -296,14 +308,14 @@
     <!-- Footer (credit to Polar)-->
     <style>
         #footer {
-            display: none;
+            display: block;
             flex-flow: column nowrap;
             /* split into top and bottom*/
             width: 100%;
             padding: 35px;
-            background: #19252a;
+            background: #0F151D;
             /* dark blue / gray */
-            box-shadow: inset 0 5px 10px #000;
+            box-shadow: inset 0px 150px 300px #16202c;
             /* shadows inside the footer*/
             box-sizing: border-box;
         }
@@ -418,6 +430,7 @@
         
     </style>
 </head>
+
 <body>
     <div class="hide">
         <input type="checkbox" id="example-five-checkbox" />
@@ -429,10 +442,7 @@
         <div class="logo">
             
         </div>
-        <nav>
-            <a href='javascript: changePage("main-page");' class="nav-link">Main</a>
-            <a href='javascript: changePage("game-page");' class="nav-link">Page 2</a>
-        </nav>
+        <nav class="primary-navbar"></nav>
         
         <!-- Ad -->
         <div class="ad-wrapper">
@@ -458,12 +468,12 @@
                 <!-- An entry -->
                 <!--<div class="game-item game-item-1">-->
                 <!--    <div class="game-link-wrapper">-->
-                        <!-- Create an image and title linked to game -->
+                <!-- Create an image and title linked to game -->
                 <!--        <a href="https://www.khanacademy.org/computer-programming/i/1523326697">-->
                 <!--            <div class="field-image"><img src="https://www.khanacademy.org/computer-programming/minecraft/1523326697/latest.png" loading="eager" alt="Minecraft" width="200" height="200"></div>-->
                 <!--            <h3 class="game-title"><span>Minecraft</span></h3>-->
                 <!--        </a>-->
-                        <!-- Create text linked to author -->
+                <!-- Create text linked to author -->
                 <!--        <a href="https://www.khanacademy.org/profile/kaid_416027002460099835055978/projects">-->
                 <!--            <h3 class="game-author"><span>Bennimus</span></h3>-->
                 <!--        </a>-->
@@ -500,17 +510,55 @@
     </div>
     
     <div id="game-page" class="page">
-        <nav>
-            <a href='javascript: changePage("main-page");' class="nav-link">Main</a>
-            <a href='javascript: changePage("game-page");' class="nav-link">Page 2</a>
-        </nav>
+        <nav class="primary-navbar"></nav>
+        <canvas id="mycanvas"></canvas>
+        
+        <script>
+            var sketchProc = function(processingInstance) {
+                with(processingInstance) {
+                    size(400, 400);
+                    frameRate(30);
+                    
+                    // ProgramCodeGoesHere
+                    fill(255, 255, 0);
+                    ellipse(200, 200, 200, 200);
+                    noFill();
+                    stroke(0, 0, 0);
+                    strokeWeight(2);
+                    arc(200, 200, 150, 100, 0, PI);
+                    fill(0, 0, 0);
+                    ellipse(250, 200, 10, 10);
+                    ellipse(153, 200, 10, 10);
+                }
+            };
+            
+            // Get the canvas that Processing-js will use
+            var canvas = document.getElementById("mycanvas");
+            // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+            var processingInstance = new Processing(canvas, sketchProc);
+            
+        </script>
+    </div>
+    
+    <div id="copyrights-page" class="page">
+        <nav class="primary-navbar"></nav>
+        
+        <p>Copyright &copy; 2022 Yoosung123</p>
+        
+        <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+        
+        <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+        
+        <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+        
+        
     </div>
     
     <footer id='footer'>
         <div class='footer-top'>
-            <img class='footer-logo' src='https://www.khanacademy.org/computer-programming/i/5829667350167552/latest.png' alt='PolarLabs Logo'>
+            <img class='footer-logo' src='' alt='Logo'>
             <div class='links'>
-                <h3>Site</h3>
+                <h3>Heading1</h3>
                 <a class='button' id='0'>Home</a>
                 <a class='button' id='1'>Projects</a>
                 <a class='button' id='2'>About</a>
@@ -518,24 +566,35 @@
             </div>
             <div></div>
             <div class='links'>
-                <h3>Socials</h3>
+                <h3>Heading 2</h3>
                 <a href='https://www.khanacademy.org/profile/kaid_80710011086149831327935' target='_blank'>My Profile</a>
                 <a href='https://www.khanacademy.org/computer-programming/i/5083721946415104' target='_blank'>My Mom's Profile</a>
             </div>
             <div></div>
             <div></div>
             <div class='links'>
-                <h3>&More</h3>
+                <h3>Heading 3</h3>
                 <a class='fullscreen'>Open In Fullscreen</a>
                 <a href='https://www.khanacademy.org/computer-programming/i/6201759782453248' target='_blank'>Contest: Animation</a>
             </div>
         </div>
         <div class='footer-bottom'>
-            <p>Copyright <span class='material-icons' style='font-size:15px;position:relative;top:2px;'>copyright</span> 2022 PolarLabs. All rights reserved.<br>For web site terms of use, trademark policy, and general project policies please see <a href='https://creativecommons.org/licenses/by/4.0/' target='_blank'>https://creativecommons.org/licenses/by/4.0/</a></p>
+            <p>Copyright <span class='material-icons' style='font-size:15px;position:relative;top:2px;'>&copy;</span> 2022 Yoosung123. Some rights reserved.<br>For web site terms of use, trademark policy, and general project policies please see <a href='https://creativecommons.org/licenses/by/4.0/' target='_blank'>https://creativecommons.org/licenses/by/4.0/</a></p>
         </div>
     </footer>
     
     
+    <!-- Populate Navbars -->
+    <script type>
+        var navs = document.getElementsByClassName("primary-navbar");
+        for (var i = 0; i < navs.length; i++) {
+            navs[i].innerHTML = `            <a href='javascript: changePage("main-page");' class="nav-link">Main</a>
+            <a href='javascript: changePage("game-page");' class="nav-link">Page 2</a>
+            <a href='javascript: changePage("copyrights-page");' class="nav-link">&copy;</a>`;
+            
+        }
+        
+    </script>
     
     <!-- Switch pages -->
     <script type>
@@ -555,7 +614,7 @@
     
     <!-- Append new items to the main page -->
     <script type>
-/*
+        /*
 <div class=\"game-item game-item"+itemCount+"\">
     <div class=\"game-link-wrapper\">
         <a href=\"" + KACP + "/" + t.title.id + "\">
@@ -615,37 +674,39 @@
             },
         };
         var itemCount = 0;
+        
         function AddGameItem(which, what) {
             document.getElementById(which).insertAdjacentHTML("afterend", what);
         }
+        
         function newHTML(itemId) {
             var t = items[itemId];
             var formattedDescription = "";
             for (var i in t.description) {
-//                 formattedDescription += "<p class=\"item-desc-text\">" + t.description[i] + "</p>\n";
-//             }
-//             var KA = "https://www.khanacademy.org";
-//             var KACP = KA + "/computer-programming/i";
-//             return "\
-// <div class=\"game-item game-item-"+itemCount+"\">\
-//     <div class=\"game-link-wrapper\">\
-//         <a href=\"" + KACP + "/" + t.title.id + "\">\
-//             <div class=\"game-item-thumbnail\">\
-//                 <img src=\"" + KACP + "/" + t.title.id + "/latest.png\" loading=\"eager\" alt=\"" + t.alt + "\" width=\"200\" height=\"200\">\
-//             </div>\
-//             <h3 class=\"game-title\">" + t.title.name + "</h3>\
-//         </a>\
-//         <a href=\"" + KA + "/profile/kaid_" + t.author.id + "/projects\">\
-//             <h3 class=\"game-author\">" + t.author.name + "</h3>\
-//         </a>\
-//     </div>\
-//     <div class=\"game-item-description\">\
-//         <div class=\"item-description\">\
-//             " + formattedDescription + "\
-//             </p>\
-//         </div>\
-//     </div>\
-// </div>";
+                //                 formattedDescription += "<p class=\"item-desc-text\">" + t.description[i] + "</p>\n";
+                //             }
+                //             var KA = "https://www.khanacademy.org";
+                //             var KACP = KA + "/computer-programming/i";
+                //             return "\
+                // <div class=\"game-item game-item-"+itemCount+"\">\
+                //     <div class=\"game-link-wrapper\">\
+                //         <a href=\"" + KACP + "/" + t.title.id + "\">\
+                //             <div class=\"game-item-thumbnail\">\
+                //                 <img src=\"" + KACP + "/" + t.title.id + "/latest.png\" loading=\"eager\" alt=\"" + t.alt + "\" width=\"200\" height=\"200\">\
+                //             </div>\
+                //             <h3 class=\"game-title\">" + t.title.name + "</h3>\
+                //         </a>\
+                //         <a href=\"" + KA + "/profile/kaid_" + t.author.id + "/projects\">\
+                //             <h3 class=\"game-author\">" + t.author.name + "</h3>\
+                //         </a>\
+                //     </div>\
+                //     <div class=\"game-item-description\">\
+                //         <div class=\"item-description\">\
+                //             " + formattedDescription + "\
+                //             </p>\
+                //         </div>\
+                //     </div>\
+                // </div>";
                 formattedDescription += "<p class=\"item-desc-text\">" + t.description[i] + "</p>\n";
             }
             var KA = "https://www.khanacademy.org";
@@ -674,27 +735,32 @@
         for (var i in items) {
             AddGameItem("game-items", newHTML(i));
         }
+        
     </script>
     
     <!-- Fullscreening; Credit to Polar @kaid_80710011086149831327935 -->
     <script type>
-      //  every fullscreen button
-      const fullscreens = document.getElementsByClassName('fullscreen');
-      
-      //  for all fullscreen buttons
-      for (let i = fullscreens.length; i--;) {
-        //  if clicked
-        fullscreens[i].addEventListener('click', () => {
-          //  open new tab and write the current html code
-          let w = window.open();
-          w.document.open();
-          w.document.write('<!doctype html><html>' + document.querySelector('html').innerHTML + '</html>');
-          w.document.close();
-        });
+        //  every fullscreen button
+        const fullscreens = document.getElementsByClassName('fullscreen');
+        
+        //  for all fullscreen buttons
+        for (let i = fullscreens.length; i--;) {
+            //  if clicked
+            fullscreens[i].addEventListener('click', () => {
+                //  open new tab and write the current html code
+                let w = window.open();
+                w.document.open();
+                w.document.write('<!doctype html><html>' + document.querySelector('html').innerHTML + '</html>');
+                w.document.close();
+            });
+            
     </script>
     
     <!-- Restart Button -->
-    <script>void(1||random());</script>
+    <script>
+        void(1 || random());
+        
+    </script>
     
     
     <!-- Credit to Grey Wolf @https://www.khanacademy.org/profile/kaid_639291037700385781852565/projects -->
@@ -706,7 +772,7 @@
                     b64Img = canvas.toDataURL();
                     window.top.postMessage(b64Img, "https://www.khanacademy.org/");
                 },
-                allowTaint : false,
+                allowTaint: false,
                 useCORS: true,
                 width: window.innerWidth,
                 height: window.innerWidth
@@ -719,11 +785,12 @@
         }
         
         document.body.addEventListener("keydown", (e) => {
-            if(e.keyCode === 83) {
+            if (e.keyCode === 83) {
                 save();
             }
         });
-    </script><!--<script>-->
+        
+    </script>
 </body>
 
 </html>
