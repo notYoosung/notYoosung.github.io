@@ -5,16 +5,15 @@
 	<title>Minetest Skin Converter</title>
 	<link rel="stylesheet" type="text/css" href="character.css">
 	<style type="text/css">
-		body,
-		html {
-			margin: 0;
+		body {
+			margin: 15px;
 			font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
 			font-size: 1rem;
 			font-weight: 400;
 			line-height: 1.2;
-			color: #fff;
+			color: #ccc;
 			text-align: left;
-			background-color: #16202c;
+			background-color: #1a2351;
 			max-width: 100vw;
 			overflow-x: hidden;
 			overflow: auto;
@@ -103,7 +102,8 @@
 </head>
 
 <body id="body">
-
+	<h1 style="color:violet;">MC TO MT SKINS #EPIC #NOCLICKBAIT #NOADS #ARKACIA</h1>
+	<h3 style="color:violet;">#XFDXDFXDF #EASY #QUICK #MINETEST #WHATSLUANTI #MCL #OMGWHATSVOXELIBRETOO</h3>
 	<!-- use <u>...</u> to mark on-mouse-over help / title tag -->
 	<div id="loader">
 		<table>
@@ -148,17 +148,17 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 				</td>
 			</tr>
 			<tr>
-				<td>Background Color:<input type="color" value="#FFFFFF"
+				<td>Background Color:<input type="color" value="#ccc"
 						onchange="setBackgroundColor('dstImg', this.value)"
 						onclick="setBackgroundColor('dstImg', this.value)" />
 					<!-- issue: onchange() is not triggered if the bg color was checkerboard before
 			fix: onclick() but this changes the color value even if the user selects cancel -->
 					<button type="button" onclick="setBackgroundColor('dstImg', 'checkerboard')">Checkerboard</button>
-					/ <input type="color" value="#FFFFFF" onchange="setBackgroundColor('srcImg', this.value)"
+					/ <input type="color" value="#ccc" onchange="setBackgroundColor('srcImg', this.value)"
 						onclick="setBackgroundColor('srcImg', this.value)" />
 					<button type="button" onclick="setBackgroundColor('srcImg', 'checkerboard')">Checkerboard</button>
 				</td>
-				<td><input type="color" value="#FFFFFF" onchange="setBackgroundColor('characterElementId', this.value)"
+				<td><input type="color" value="#ccc" onchange="setBackgroundColor('characterElementId', this.value)"
 						onclick="setBackgroundColor('characterElementId', this.value)" />
 					<button type="button"
 						onclick="setBackgroundColor('characterElementId', 'checkerboard')">Checkerboard</button>
@@ -242,9 +242,9 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 					<div id="characterElementId"></div>
 				</td>
 			</tr>
-			<tr>
+			<tr style="display:none;" >
 				<td>
-					<p style="font-size:15px;">Original skin:</p>
+					<!-- <p style="font-size:15px;">Original skin:</p> -->
 					<img id="srcImg" src="" border="1" alt="Placeholder for the source skin" /><br />
 				</td>
 			</tr>
@@ -252,10 +252,10 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 			<tr>
 				<td>
 					<p style="font-size:15px;">Code:</p>
-					<button class="tooltip" onclick="copyFunction()">Copy text
+					<button style="background-color: #ccc;" class="tooltip" onclick="copyFunction()">Copy text
 						<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
 					</button>
-					<textarea style="width:100%;height:500px;" id="txt"></textarea>
+					<textarea style="width:100%;height:200px;background-color: #ccc;" id="txt"></textarea>
 				</td>
 			</tr>
 		</table>
