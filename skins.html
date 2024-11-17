@@ -1,25 +1,25 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
 	<title>Minetest Skin Converter</title>
 	<link rel="stylesheet" type="text/css" href="character.css">
 	<style type="text/css">
-
-        body,
-        html {
-            margin: 0;
-            font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.2;
-            color: #fff;
-            text-align: left;
-            background-color: #16202c;
-            max-width: 100vw;
-            overflow-x: hidden;
-            overflow: auto;
-            height: 100%;
-        }
+		body,
+		html {
+			margin: 0;
+			font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.2;
+			color: #fff;
+			text-align: left;
+			background-color: #16202c;
+			max-width: 100vw;
+			overflow-x: hidden;
+			overflow: auto;
+			height: 100%;
+		}
 
 		/* Do not blur zoomed images; https://drafts.csswg.org/css-images-3/#the-image-rendering */
 		img,
@@ -172,7 +172,7 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 			<tr>
 				<td>
 					<button type="button" onclick="copy('areaJacket.back', 'areaCapeMinetest')"
-						title="Copy Minecraft 'Cape' to Minetest"><u>Copy</u></button>/
+						title="Copy Minecraft 'Cape' to Minetest"><u>Copy</u></button> /
 					<button type="button" onclick="copy('areaCapeMinetest', 'areaNull')"
 						title="Replace 'Cape' area with transparency"><u>Erase</u></button> Cape
 				</td>
@@ -180,11 +180,12 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 			</tr>
 			<tr>
 				<td>
-					Copy<input id="alphaJacket" type="text" size="1" value="0.5" title="Alpha value"><button
+					Copy: <input id="alphaJacket" type="text" size="1" value="0.5" title="Alpha value"><button
 						type="button" onclick="copy('areaJacket.all', 'areaBody.all', '0', 'alphaJacket')"
-						title="Copy Minecraft 'Jacket' over Minetest 'Body' (including cape) with alpha transparency"><u>Jacket</u></button>/
+						title="Copy Minecraft 'Jacket' over Minetest 'Body' (including cape) with alpha transparency"><u>Jacket</u></button>
+					/
 					<button type="button" onclick="copy('areaBody.back', 'areaBody.back')"
-						title="Restore the back of the Minetest body"><u>Body.Back</u></button>/
+						title="Restore the back of the Minetest body"><u>Body.Back</u></button> /
 					<button type="button" onclick="copy('areaBody.all', 'areaBody.all')"
 						title="Restore the whole Minetest body"><u>Body</u></button>
 				</td>
@@ -192,16 +193,17 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 			</tr>
 			<tr>
 				<td>
-					Copy Left<input id="alphaTrouserLeft" type="text" size="1" value="0.5" title="Alpha value"><button
+					Copy Left: <input id="alphaTrouserLeft" type="text" size="1" value="0.5" title="Alpha value"><button
 						type="button"
 						onclick="copy('areaTrouserLeft.all', 'areaLegRight.all', '1', 'alphaTrouserLeft' )"
-						title="Copy and flip 'Left Trouser' over 'Right Leg' with alpha transparency"><u>Trouser</u></button>/
+						title="Copy and flip 'Left Trouser' over 'Right Leg' with alpha transparency"><u>Trouser</u></button>
+					/
 					<button type="button" onclick="copy('areaLegLeft.all', 'areaLegRight.all', '1')"
 						title="Copy and flip the left leg"><u>Leg</u></button>.
-					Copy Right<input id="alphaTrouserRight" type="text" size="1" value="0.5" title="Alpha value"><button
-						type="button"
+					Copy Right: <input id="alphaTrouserRight" type="text" size="1" value="0.5"
+						title="Alpha value"><button type="button"
 						onclick="copy('areaTrouserRight.all', 'areaLegRight.all', '0', 'alphaTrouserRight' )"
-						title="Copy 'Right Trouser' over 'Right Leg' with alpha transparency"><u>Trouser</u></button>/
+						title="Copy 'Right Trouser' over 'Right Leg' with alpha transparency"><u>Trouser</u></button> /
 					<button type="button" onclick="copy('areaLegRight.all', 'areaLegRight.all')"
 						title="Restore the right leg"><u>Leg</u></button>
 				</td>
@@ -209,13 +211,15 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 			</tr>
 			<tr>
 				<td>
-					Copy Left<input id="alphaSleeveLeft" type="text" size="1" value="0.5" title="Alpha value"><button
+					Copy Left: <input id="alphaSleeveLeft" type="text" size="1" value="0.5" title="Alpha value"><button
 						type="button" onclick="copy('areaSleeveLeft.all', 'areaArmRight.all', '1', 'alphaSleeveLeft' )"
-						title="Copy and flip 'Left Sleeve' over 'Right Arm' with alpha transparency"><u>Sleeve</u></button>/
+						title="Copy and flip 'Left Sleeve' over 'Right Arm' with alpha transparency"><u>Sleeve</u></button>
+					/
 					<button type="button" onclick="copy('areaArmLeft.all', 'areaArmRight.all', '1')"
 						title="Copy and flip the left arm"><u>Arm</u></button>
-					Copy Right<input id="alphaSleeveRight" type="text" size="1" value="0.5" title="Alpha value"><button
-						type="button" onclick="copy('areaSleeveRight.all', 'areaArmRight.all', '0', 'alphaSleeveRight')"
+					Copy Right: <input id="alphaSleeveRight" type="text" size="1" value="0.5"
+						title="Alpha value"><button type="button"
+						onclick="copy('areaSleeveRight.all', 'areaArmRight.all', '0', 'alphaSleeveRight')"
 						title="Copy 'Right Sleeve' over 'Right Arm' with alpha transparency"><u>Sleeve</u></button>
 					<button type="button" onclick="copy('areaArmRight.all', 'areaArmRight.all')"
 						title="Restore the right arm"><u>Arm</u></button>
@@ -229,6 +233,7 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 		<table>
 			<tr>
 				<td>
+					<p style="font-size:15px;">MT skin:</p>
 					<img id="dstImg" src="" border="1"
 						alt="Placeholder for new skin. When it shows the proper skin: Right-Click; Save Image As ..."
 						title="Right-Click; Save Image As ..." />
@@ -239,20 +244,18 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 			</tr>
 			<tr>
 				<td>
+					<p style="font-size:15px;">Original skin:</p>
 					<img id="srcImg" src="" border="1" alt="Placeholder for the source skin" /><br />
-					<div id="dummy">
-						<div class="tooltip">
+				</td>
+			</tr>
 
-							<button onclick="copyFunction()">Copy text
-								<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
-							</button>
-						</div>
-					</div>
-
-					<div>
-						<textarea style="width:100%;height:500px;" id="txt"></textarea>
-					</div>
-
+			<tr>
+				<td>
+					<p style="font-size:15px;">Code:</p>
+					<button class="tooltip" onclick="copyFunction()">Copy text
+						<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+					</button>
+					<textarea style="width:100%;height:500px;" id="txt"></textarea>
 				</td>
 			</tr>
 		</table>
@@ -505,7 +508,8 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 			var idname = document.getElementById(constImgLoader).files[0].name.replace(new RegExp("\\..*", ""), "");
 			idname = (idname.replace(/[^a-zA-Z0-9]/g, '_'));
 			document.getElementById("txt").value = "    \"" + idname + "\" = \"" + tmpDataUrl.replace("data:image/png;base64,", "") + "\",";
-			renderAs('mcCloth')
+			renderAs('mcCloth');
+			zoom.to(4);
 		}
 
 
