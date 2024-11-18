@@ -508,7 +508,7 @@ https://www.minecraftskins.com/uploads/skins/2024/11/15/polar-bear-hoodie-228770
 
 			var idname = document.getElementById(constImgLoader).files[0].name.replace(new RegExp("\\..*", ""), "");
 			idname = (idname.replace(/[^a-zA-Z0-9]/g, '_'));
-			document.getElementById("txt").value = "    \"" + idname + "\" = \"" + tmpDataUrl.replace("data:image/png;base64,", "") + "\",";
+			document.getElementById("txt").value = "    [\"" + idname + "\"] = \"" + tmpDataUrl.replace("data:image/png;base64,", "") + "\",\n";
 			renderAs('mcCloth');
 			zoom.to(4);
 		}
